@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fontawesome-free-6.5.2-web/css/all.min.css') }}">
+    <link rel="icon" type="image/jpg" href="{{ url_for('static', filename='favicon.svg') }}"/>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="{{ url_for('static', filename='logo.svg') }}" alt="SignAI Logo" class="logo">
+        <h1>SignAI</h1>
+    </header>
+    <main>
+        <div class="panel-container">
+            <div class="camera-container">
+                <video id="video" width="640" height="480" class="gray-screen"></video>
+                <div class="controls">
+                    <div class="control">
+                        <label class="switch">
+                            <input type="checkbox" id="cameraToggle">
+                            <span class="slider"></span>
+                        </label>
+                        <i class="fas fa-camera inactive"></i>
+                    </div>
+                    <div class="control">
+                        <label class="switch">
+                            <input type="checkbox" id="subtitlesToggle" disabled>
+                            <span class="slider"></span>
+                        </label>
+                        <i class="fas fa-closed-captioning inactive"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="subtitles-container">
+                <div class="output-container">
+                    <p id="output" class="hidden-text"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Wykryte słowa: <span id="detected-words">
+        </span> </p>
+
+    </footer>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

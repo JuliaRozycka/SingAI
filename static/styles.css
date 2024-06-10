@@ -1,0 +1,215 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ECF0F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+.container {
+    background-color: rgba(52, 152, 219, 0.14);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 94%; /* Set width to 90% of its container */
+    padding: 50px;
+    text-align: center; /* Center align content within the container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center child elements horizontally */
+    box-sizing: border-box; /* Include padding in width/height calculations */
+    max-height: 90vh;
+}
+
+header {
+    color: rgb(52, 152, 219);
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    justify-content: center; /* Center align items horizontally */
+}
+
+header .logo {
+    height: 100px;
+    margin-right: 20px;
+}
+
+header h1 {
+    font-size: 34px;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.panel-container {
+    display: flex;
+    width: 100%;
+    min-height: 60vh;
+    justify-content: center; /* Center the content horizontally */
+
+}
+
+
+.camera-container {
+    flex: 0 1 55%; /* Adjusted flex basis */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ECF0F1;
+    border-radius: 8px 0 0 8px;
+    padding: 20px; /* Added padding */
+    max-width: 50%;
+    position: relative;
+    max-height: 56vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Only apply shadow to right side */
+
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.controls .fas {
+    font-size: 20px;
+    color: #3498DB;
+    margin-left: 10px;
+}
+
+.controls .fas.inactive {
+    color: #D5D8DC;
+}
+
+.control {
+    margin-right: 30px;
+    display: flex;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    margin: 0 3px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3498DB;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.subtitles-container {
+    flex: 0 1 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F4F6F7;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    max-width: 50%;
+    max-height: 56vh;
+}
+
+.subtitles-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -10px; /* Extend shadow beyond the left edge to hide it */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Only apply shadow to right side */
+    border-radius: 0 8px 8px 0; /* Match the container's border-radius */
+    z-index: -1;
+}
+
+.subtitles-container p {
+    margin: 0;
+    font-size: 26px !important;
+    color: #2C3E50;
+    text-align: left;
+}
+
+.hidden-text {
+    visibility: hidden;
+}
+
+.gray-screen {
+    background-color: #D5D8DC;
+    width: 100%; /* Match the width of the camera container */
+    height: 100%; /* Match the height of the camera container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2C3E50;
+    font-size: 24px;
+}
+
+
+footer {
+    background-color: #ECF0F1;
+    padding: 30px 10px 30px 10px;
+    border-radius: 10px; /* Adjust border-radius as needed */
+    text-align: left; /* Center align text content */
+    width: 84%; /* Set width to 88% of its container */
+    margin: 20px 0 0 0; /* Margin only on top and bottom */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Only apply shadow to right side */
+
+}
+
+footer p {
+    margin: 0 0 0 10px;
+    font-size: 20px;
+    color: #2C3E50;
+}
+
+footer #detected-words {
+    color: #3498DB;
+}
+
+video {
+    width: 100%; /* Make the video element fill the camera container */
+    height: 100%; /* Make the video element fill the camera container */
+    object-fit: cover; /* Ensure video covers entire area without distortion */
+}
