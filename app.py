@@ -5,10 +5,6 @@ from GestureRecognizer import GestureRecognizer
 
 app = Flask(__name__)
 
-model_name = 'gpt2-large'
-# Load pre-trained model and tokenizer
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-model = GPT2LMHeadModel.from_pretrained("gpt2")
 recognizer = GestureRecognizer()
 
 polish_to_english = {
