@@ -172,50 +172,6 @@ function generateSentence() {
         .catch(error => console.error('Error generating sentence:', error));
 }
 
-document.addEventListener('keydown', function (event) {
-    const key = event.key.toUpperCase(); // Get the pressed key in uppercase
-    let newWord = '';
-
-    // Determine the word associated with the pressed key
-    switch (key) {
-        case 'T':
-            newWord = 'Telefon';
-            break;
-        case 'P':
-            newWord = 'Pomoc';
-            break;
-        case 'L':
-            newWord = 'Lekarstwo';
-            break;
-        case 'A':
-            newWord = 'Pogotowie';
-            break;
-        case 'Z':
-            newWord = 'Zawal';
-            break;
-        case 'D':
-            newWord = 'Lekarz';
-            break;
-        case 'N':
-            newWord = 'Potrzebowac';
-            break;
-        case 'F':
-            newWord = 'Pozar';
-            break;
-        case 'H':
-            newWord = 'Szpital';
-            break;
-        case 'B':
-            newWord = 'Bol';
-            break;
-        default:
-            return; // Exit if key doesn't match any of the cases
-    }
-
-    // Update the detected words element with the new word
-    updateDetectedWords(newWord);
-});
-
 
 // Call generateSentence function every time detected words are updated
 const detectedWordsElement = document.getElementById('detected-words');

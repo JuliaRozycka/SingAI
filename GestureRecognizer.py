@@ -4,6 +4,7 @@ import base64
 import mediapipe as mp
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout, Bidirectional, Input
+from google.cloud import aiplatform
 
 mp_holistic = mp.solutions.holistic  # Holistic model
 mp_drawing = mp.solutions.drawing_utils  # Drawing utilities
@@ -11,6 +12,18 @@ holistic = mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confi
 actions = np.array(
     ['Potrzebowac', 'Pozar', 'Zatrucie', 'Szpital', 'Telefon', 'Lekarstwo', 'Bol', 'Lekarz', 'Pogotowie', 'Zawal'])
 
+
+PROJECT_NUMBER = "745796643"
+ENDPOINT_ID = "6890214959783870464"
+
+
+def predict_custom_trained_model(instances, project_number, endpoint_id):
+    """Uses Vertex AI endpoint to make predictions."""
+    endpoint = aiplatform.Endpoint(
+        endpoint_name=f"projects/{project_number}/locations/us-central1/endpoints/{endpoint_id}"
+    )
+    result = endpoint.predict(instances=[instances])
+    return result.predictions
 
 def load_my_model(model_file):
     model = Sequential(

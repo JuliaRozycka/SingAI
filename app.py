@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
 import ollama
 from GestureRecognizer import GestureRecognizer
+import modelbit
 
 app = Flask(__name__)
 
@@ -28,6 +28,7 @@ def index():
 
 
 if __name__ == "__main__":
+    mb = modelbit.login()
     app.run(debug=True)
 
 
